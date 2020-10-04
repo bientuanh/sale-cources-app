@@ -1,0 +1,32 @@
+.footer-container {
+  background-color: #464646;
+  padding-top: 20px;
+  margin-top: 50px;
+
+  mat-grid-list {
+    margin: 30px 150px 0px 150px;
+    height: auto;
+
+    .mat-grid-tile {
+      &__inside {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        h3 {
+          font-weight: bold;
+          font-size: 1.2rem;
+          color: white;
+        }
+        li {
+          list-style-type: none;
+          margin-bottom: 7px;
+          text-decoration: none;
+          color: #919294;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

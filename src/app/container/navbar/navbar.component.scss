@@ -1,9 +1,11 @@
 .mat-tool-bar-container {
-  position: sticky;
+  position: fixed;
   position: -webkit-sticky; /* For macOS/iOS Safari */
+  width: 100%;
   top: 0;
-  z-index: 1000;
-  margin-bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 2;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
     0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
 
@@ -11,6 +13,7 @@
     &.mat-primary {
       background: #1976d2;
     }
+
     a {
       margin-right: 10px;
       cursor: pointer;
@@ -25,9 +28,11 @@
         background-color: #ff4081;
       }
     }
+
     .example-spacer {
       flex: 1 1 auto;
     }
+
     .sub-link {
       font-size: 1rem;
     }

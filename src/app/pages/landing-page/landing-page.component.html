@@ -1,17 +1,196 @@
-<div class="banner-container">
+<!-- Start banner -->
+<section class="banner-container" id="banner-container">
   <div class="banner-container__title">
     <h1>Programming is not easy ?</h1>
     <h3>
       An Angular application comprises a tree of components, in which each
       Angular component has a specific purpose and responsibility.
     </h3>
-    <button
+    <a
       mat-fab
       color="accent"
       aria-label="Example icon button with a bookmark icon"
+      (click)="onClickBannerBtn()"
     >
       <mat-icon>expand_more</mat-icon>
-    </button>
+    </a>
   </div>
-</div>
+</section>
 <!-- End of banner-->
+
+
+<!-- Start my courses -->
+<section class="my-courses" id="my-courses">
+  <mat-grid-list
+    class="my-courses__row1"
+    cols="1"
+    rowHeight="120px"
+    gutterSize="10px"
+  >
+    <mat-grid-tile>
+      <div class="mat-grid-tile__inside">
+        <h2>My courses</h2>
+        <p>
+          The number of rows will be automatically determined based on the number of
+          columns and the number of items.
+        </p>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- End of row 1 -->
+
+  <mat-grid-list
+    class="my-courses__row2"
+    cols="3"
+    rowHeight="1:1.2"
+    gutterSize="5px"
+  >
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <div class="example-card__img_container">
+          <img mat-card-image src="../../../assets/images/html-css-js.jpg" alt="Photo of a Shiba Inu">
+        </div>
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>BUY</button>
+          <button mat-button>VIEW</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <div class="example-card__img_container">
+          <img mat-card-image src="../../../assets/images/angular-10.png" alt="Photo of a Shiba Inu">
+        </div>
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>BUY</button>
+          <button mat-button>VIEW</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <div class="example-card__img_container">
+          <img mat-card-image src="../../../assets/images/reacjs-logo.png" alt="Photo of a Shiba Inu">
+        </div>
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>BUY</button>
+          <button mat-button>VIEW</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- End of row 2 -->
+</section>
+<!-- End of my courses -->
+
+
+<!-- Start example apps -->
+<section class="example-apps" id="example-apps">
+  <mat-grid-list
+    cols="2"
+    rowHeight="2:0.8"
+    gutterSize="30px"
+  >
+    <!-- Row 1 -->
+    <mat-grid-tile colspan="2" rowspan="1" class="mat-grid-tile__row1">
+      <div class="mat-grid-tile__container item-1">
+        <h2>Example apps</h2>
+        <p>
+          These are applications which is created when you learn my courses.
+        </p>
+        <p>
+          All apps are guided detail step by step with all level of students.
+        </p>
+      </div>
+    </mat-grid-tile>
+
+    <!-- Row 2 -->
+    <mat-grid-tile class="mat-grid-tile__row2">
+      <div class="mat-grid-tile__container img item-1" class="mat-grid-tile__row2">
+        <a [href]="url + '/example-apps/shopping-card'">
+          <img src="../../../assets/images/shopping-cart-img.png" alt="shopping-cart-img">
+        </a>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="mat-grid-tile__container item-2">
+        <h3>Shopping cart app</h3>
+        <p>
+          Just pick the template that best suits your skills and experience level, and make
+          your resume. Fill in the blank spaces and you’ll be done in a matter of minutes.
+          Change color patterns, mix and match various fonts, add or remove resume sections.
+          Let your individuality show through.
+        </p>
+      </div>
+    </mat-grid-tile>
+
+
+    <!-- Row 3 -->
+    <mat-grid-tile class="mat-grid-tile__row3">
+      <div class="mat-grid-tile__container item-1">
+        <h3>Kanban app</h3>
+        <p>
+          Just pick the template that best suits your skills and experience level, and make
+          your resume. Fill in the blank spaces and you’ll be done in a matter of minutes.
+          Change color patterns, mix and match various fonts, add or remove resume sections.
+          Let your individuality show through.
+        </p>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="mat-grid-tile__container img item-2">
+        <img src="../../../assets/images/kanban-app.png" alt="">
+      </div>
+    </mat-grid-tile>
+
+
+    <!-- Row 4 -->
+    <mat-grid-tile class="mat-grid-tile__row4">
+      <div class="mat-grid-tile__container img item-1">
+        <img src="../../../assets/images/user-management-app.png" alt="">
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class=".mat-grid-tile__container item-2">
+        <h3>User management app</h3>
+        <p>
+          Just pick the template that best suits your skills and experience level, and make
+          your resume. Fill in the blank spaces and you’ll be done in a matter of minutes.
+          Change color patterns, mix and match various fonts, add or remove resume sections.
+          Let your individuality show through.
+        </p>
+      </div>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+
+
+</section>
+<!-- End of example apps -->

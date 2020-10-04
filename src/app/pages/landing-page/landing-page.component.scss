@@ -1,14 +1,29 @@
+$p-font-size: 1.1rem;
+$p-line-height: 1.4rem;
+
+$h2-font-size: 2em;
+$h2-font-weight: bold;
+$h2-text-transform: uppercase;
+$h2-transition: 0.3s ease-in-out;
+$h2-letter-spacing: 4px;
+
+$h3-font-size: 1.5em;
+$h3-font-weight: bold;
+$h3-text-transform: uppercase;
+$h3-transition: 0.3s ease-in-out;
+$h3-letter-spacing: 2px;
+
 .banner-container {
   background-image: url("../../../assets//images//landing-page-bg.jpg");
   background-color: #cccccc;
-  height: calc(100vh - 65px);
+  height: calc(100vh);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  text-align: center;
 
-  $banner-container__title: 670px;
+  $banner-container__title: 700px;
+
   &__title {
     position: absolute;
     color: white;
@@ -17,13 +32,27 @@
     padding: 20px;
     top: calc(50% - 104px);
     left: calc(#{50%} - #{($banner-container__title / 2)});
+    text-align: center;
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: bold;
       transition: 0.3s ease;
+      width: 100%;
       &:hover {
         letter-spacing: 3px;
+      }
+    }
+
+    h3 {
+      width: 70%;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+
+    a {
+      &:hover {
+        background-color: coral;
       }
     }
   }
@@ -32,5 +61,177 @@
     padding: 15px 20px;
     cursor: pointer;
     font-size: 1.05rem;
+  }
+}
+
+.my-courses {
+  &__row1 {
+    mat-grid-tile {
+      text-align: center;
+      padding: 10px;
+
+      h2 {
+        font-size: $h2-font-size;
+        font-weight: $h2-font-weight;
+        text-transform: $h2-text-transform;
+        transition: $h2-transition;
+        &:hover {
+          letter-spacing: $h2-letter-spacing;
+        }
+      }
+
+      p {
+        font-size: $p-font-size;
+        line-height: $p-line-height;
+      }
+
+      .mat-grid-tile__inside {
+        padding-top: 40px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+
+  &__row2 {
+    .example-card {
+      width: calc(100% - 60px);
+      border: 1px solid #ff4081;
+
+      &:hover {
+        box-shadow: 10px 10px 5px grey;
+      }
+
+      &__img_container {
+        overflow: hidden;
+        transition: 0.3s ease-in-out;
+
+        &:hover img {
+          transform: scale(1.3);
+        }
+        img {
+          transition: 0.3s ease-in-out;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.example-apps {
+  margin-top: 0px;
+  img {
+    transition: $h3-transition;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .mat-grid-list {
+    margin: 0px 100px;
+
+    .mat-grid-tile {
+      .mat-grid-tile__container {
+        &.img {
+          overflow: hidden;
+        }
+      }
+
+      h2 {
+        font-size: $h2-font-size;
+        font-weight: $h2-font-weight;
+        text-transform: $h2-text-transform;
+        transition: $h2-transition;
+        &:hover {
+          letter-spacing: $h2-letter-spacing;
+        }
+      }
+
+      h3 {
+        font-size: $h3-font-size;
+        font-weight: $h3-font-weight;
+        text-transform: $h3-text-transform;
+        transition: $h3-transition;
+        &:hover {
+          letter-spacing: $h3-letter-spacing;
+        }
+      }
+
+      p {
+        font-size: $p-font-size;
+        line-height: $p-line-height;
+      }
+
+      img {
+        max-width: 465px;
+      }
+
+      &.mat-grid-tile__row1 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Very small screen: width < 636px
+@media only screen and (max-width: 636px) {
+  .banner-container {
+    &__title {
+      h1 {
+        font-size: 2.2rem;
+      }
+      h3 {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  example-apps {
+    .mat-grid-list {
+      .mat-grid-tile {
+        img {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
+
+// Very big screen: width > 1454px
+@media only screen and (min-width: 1454px) {
+  .banner-container {
+    &__title {
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 30px;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+    }
+
+    $banner-container__title: 900px;
+    &__title {
+      width: $banner-container__title;
+      top: calc(50% - 104px);
+      left: calc(#{50%} - #{($banner-container__title / 2)});
+    }
+  }
+
+  .my-courses {
+    &.my-courses__row2 {
+      height: calc(650px);
+    }
+  }
+
+  .example-apps {
+    .mat-grid-list {
+      .mat-grid-tile {
+        img {
+          max-width: 700px;
+        }
+      }
+    }
   }
 }

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  url: 'https://bientuanh.github.io/sale-cources-app/',
 };
