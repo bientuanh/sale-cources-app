@@ -14,6 +14,9 @@ export class PaginationComponent implements OnInit {
   ngOnInit(): void {}
 
   onChangePageSize(event: any) {
+    this.listUserService.isDisplaySpinner = true;
+    this.listUserService.opacityVale = 0.5;
+
     if (this.listUserService.pageSize !== event.pageSize) {
       this.listUserService.pageSize = event.pageSize;
     }
@@ -21,6 +24,8 @@ export class PaginationComponent implements OnInit {
     this.listUserService.getUsers(event.pageIndex + 1).subscribe((result) => {
       this.listUserService.users = new MatTableDataSource<IUser>(result.body);
       this.listUserService.totalRecords = +result.headers.get('X-Total-Count');
+      this.listUserService.isDisplaySpinner = false;
+      this.listUserService.opacityVale = 1;
     });
   }
 }

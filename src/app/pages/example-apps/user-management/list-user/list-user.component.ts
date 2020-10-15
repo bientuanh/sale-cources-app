@@ -16,16 +16,22 @@ export class ListUserComponent implements OnInit {
   constructor(public listUserService: ListUserService) {}
 
   displayedColumns: string[] = ['avatar', 'name', 'email', 'birthday'];
+  opacityValue: number = 1;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
+    this.listUserService.isDisplaySpinner = true;
+    this.listUserService.opacityVale = 0.5;
+
     this.listUserService.getUsers(1).subscribe((result) => {
       this.listUserService.users = new MatTableDataSource<IUser>(result.body);
       this.listUserService.totalRecords = +result.headers.get('X-Total-Count');
       this.listUserService.users.sort = this.sort;
       this.listUserService.users.paginator = this.paginator;
+      this.listUserService.isDisplaySpinner = false;
+      this.listUserService.opacityVale = 1;
     });
   }
 

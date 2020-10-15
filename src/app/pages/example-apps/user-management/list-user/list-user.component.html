@@ -4,7 +4,7 @@
 <div class="example-container mat-elevation-z8">
   <div class="example-table-container">
     <!-- Table page -->
-    <table mat-table [dataSource]="listUserService.users" matSort>
+    <table mat-table [dataSource]="listUserService.users" matSort [style.opacity]="listUserService.opacityVale">
       <!-- Avatar Column -->
       <ng-container matColumnDef="avatar">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Avatar </th>
@@ -34,6 +34,12 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <!-- Spinner - Loading of data -->
+    <mat-spinner
+      *ngIf="listUserService.isDisplaySpinner"
+      [diameter]="70"
+    ></mat-spinner>
   </div>
 
   <!-- Pagination of table -->

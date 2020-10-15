@@ -7,6 +7,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { CreateUserComponent } from './create-user.component';
 
@@ -21,6 +23,9 @@ import { CreateUserComponent } from './create-user.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
+    FormsModule,
+    MatSnackBarModule,
+    ReactiveFormsModule,
   ],
 })
 export class CreateUserModule {}

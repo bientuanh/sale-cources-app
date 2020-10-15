@@ -17,6 +17,8 @@ export class ListUserService implements OnInit {
   pageSize: number = 5;
   users: MatTableDataSource<IUser>;
   totalRecords: number;
+  isDisplaySpinner: boolean = true;
+  opacityVale = 0.5;
 
   ngOnInit(): void {}
 
@@ -54,5 +56,9 @@ export class ListUserService implements OnInit {
     });
 
     return this.http.get<IUser[]>(this.api + '/users' + qr);
+  }
+
+  addUser(userInfo: any) {
+    return this.http.post(this.api + '/users', userInfo);
   }
 }

@@ -4,6 +4,16 @@
     (click)="router.navigate(['./example-apps/user-management/create-user']);"
   >Add user</a>
 
+  <div class="example-button-container">
+    <button
+      mat-fab color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="onClickReloadTable()"
+    >
+      <mat-icon>cached</mat-icon>
+    </button>
+  </div>
+
   <mat-form-field appearance="fill">
     <mat-label>Search user</mat-label>
     <input matInput>
