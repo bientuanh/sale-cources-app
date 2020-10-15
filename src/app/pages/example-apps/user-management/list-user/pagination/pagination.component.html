@@ -1,0 +1,7 @@
+<mat-paginator
+  [length]="listUserService.totalRecords"
+  [pageSize]="listUserService.pageSize"
+  [pageSizeOptions]="[5, 10, 20, 30]"
+  showFirstLastButtons
+  (page)="onChangePageSize($event)"
+></mat-paginator>

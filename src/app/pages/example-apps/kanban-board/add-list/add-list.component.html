@@ -1,0 +1,35 @@
+<section class="add-list-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Add new main job</mat-label>
+    <input
+      id="mainJobName"
+      name="mainJobName"
+      class="mainJobName"
+      matInput
+      required
+      [(ngModel)]="mainJobName"
+      #mainJob="ngModel"
+      #mainJobEle
+      pattern="[a-zA-Z1-9]{4,}"
+    >
+    <div
+      *ngIf="mainJob.invalid && (mainJob.dirty || mainJob.touched)"
+      class="alert alert-danger"
+    >
+      <div *ngIf="mainJob.errors.required" class="alert alert-danger ">
+        Name is required.
+      </div>
+      <div *ngIf="mainJob.errors.pattern" class="alert alert-danger">
+        Name must contain at least 4 characters.
+      </div>
+    </div>
+  </mat-form-field>
+
+  <button
+    mat-raised-button color="primary"
+    (click)="onClickAddMainJob(mainJob.errors)"
+  >
+    <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
+    Add
+  </button>
+</section>

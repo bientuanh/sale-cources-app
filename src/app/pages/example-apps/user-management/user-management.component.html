@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>User management</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" opened="true">
+    <mat-list>
+      <mat-list-item>
+        <a routerLink="list-user" routerLinkActive="active">List user</a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item>
+        <a routerLink="create-user" routerLinkActive="active">Add user</a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item>
+        <a routerLink="edit-user" routerLinkActive="active">Edit user</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <!-- Main content of page -->
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

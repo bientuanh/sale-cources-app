@@ -1,0 +1,14 @@
+<section class="list-container">
+  <div cdkDropListGroup >
+    <mat-grid-list cols="3" rowHeight="1:1.5" gutterSize="10px">
+      <mat-grid-tile *ngFor="let info of kanbanBoardService.kabanBoardInfos; let i = index">
+        <app-main-job class="app-main-job"
+          [index]="i"
+          [name]="info.name"
+          [data]="info.jobs"
+          (dropFunc)="drop($event)"
+        ></app-main-job>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</section>

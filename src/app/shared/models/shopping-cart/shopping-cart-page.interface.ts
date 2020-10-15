@@ -1,7 +1,7 @@
 import { IItem } from './item-interface';
 
 export interface IShoppingCartPage {
-  listItem?: any;
+  listItem?: Array<IItem>;
   totalMoney?: number;
   promoCodeInfo?: any;
 }

@@ -1,0 +1,14 @@
+.search-container {
+  margin-bottom: 15px;
+}
+
+mat-form-field {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgb(250 250 250 / 2) !important;
+}
+

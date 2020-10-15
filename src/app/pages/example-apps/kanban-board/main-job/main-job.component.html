@@ -1,0 +1,66 @@
+<div class="example-container">
+  <!-- Header -->
+  <h2>{{name}}</h2>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    class="mat-icon__delete"
+    (click)="onClickDeleteMainJob()"
+  >delete</mat-icon>
+
+  <!-- List task -->
+  <div
+    cdkDropList
+    [cdkDropListData]="data"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div
+      class="example-box"
+      *ngFor="let item of data; let i = index"
+      cdkDrag
+    >
+      {{item}}
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        class="mat-icon__delete task"
+        (click)="onClickDeleteTask(index, i)"
+      >delete</mat-icon>
+    </div>
+  </div>
+
+  <!-- Form add new task -->
+  <div class="add-job-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Add new task</mat-label>
+      <input
+        matInput
+        [(ngModel)]="newTaskName"
+        #newTask="ngModel"
+        required
+        pattern="[a-zA-Z1-9]{4,}"
+        #newTaskEle
+      >
+      <div
+        *ngIf="newTask.invalid && (newTask.dirty || newTask.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="newTask.errors.required" class="alert alert-danger">
+          Name is required.
+        </div>
+        <div *ngIf="newTask.errors.pattern" class="alert alert-danger">
+          Name must contain at least 4 characters.
+        </div>
+      </div>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onClickAddTask(newTask.errors)"
+    >
+      <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
+      Add
+    </button>
+  </div>
+</div>

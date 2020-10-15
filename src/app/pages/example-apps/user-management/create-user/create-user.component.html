@@ -1,0 +1,60 @@
+<h2>Add user information</h2>
+
+<mat-grid-list
+  cols="2"
+  rowHeight="1:1"
+>
+  <mat-grid-tile>
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sex</mat-label>
+        <mat-select>
+          <mat-option value="option">Male</mat-option>
+          <mat-option value="option">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Birth of date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Comment for us</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile>
+    <div class="img-container">
+      <img src="assets/images/mock-avatar-1.jpg" alt="">
+    </div>
+    <button
+      type="button"
+      mat-raised-button
+      (click)="fileInput.click()"
+      class="choose-file-btn"
+    >Choose File</button>
+    <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+  </mat-grid-tile>
+</mat-grid-list>
+
+

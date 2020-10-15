@@ -1,0 +1,34 @@
+image: node:10.22.0-alpine
+
+# Cache modules for each branch
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+stages:
+  - lint
+  - build
+
+lint:
+  stage: lint
+  script:
+    - yarn
+    - yarn lint
+  only:
+    - merge_requests
+    - master
+    - tags
+
+build:
+  stage: build
+  script:
+    - yarn
+    - yarn build
+  artifacts:
+    paths:
+      - build/
+  only:
+    - merge_requests
+    - master
+    - tags

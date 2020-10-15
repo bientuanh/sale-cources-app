@@ -1,0 +1,27 @@
+.example-container {
+  position: relative;
+  min-height: 300px;
+
+  .example-table-container {
+    position: relative;
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  table {
+    width: 100%;
+
+    img {
+      width: 100px;
+      padding: 10px 10px 10px 0px;
+    }
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+}
+
+:host {
+  width: 100%;
+}

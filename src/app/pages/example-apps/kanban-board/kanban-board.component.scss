@@ -1,0 +1,20 @@
+.kanban-board {
+  margin-top: 64px;
+
+  .kanban-content {
+    padding: 0px 50px;
+  }
+
+  &.add-list {
+    // padding: 50px;
+  }
+
+  &.list {
+    // padding: 50px;
+  }
+}
+
+mat-form-field {
+  background-color: rgb(255 255 255 / 4%) !important;
+  margin-right: 10px;
+}

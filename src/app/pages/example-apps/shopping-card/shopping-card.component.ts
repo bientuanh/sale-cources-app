@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IItem } from 'src/app/shared/models/shopping-cart/item-interface';
+import { IPromoInfo } from 'src/app/shared/models/shopping-cart/promo-info.interface';
 import { IShoppingCartPage } from 'src/app/shared/models/shopping-cart/shopping-cart-page.interface';
 
 @Component({
@@ -38,14 +39,14 @@ export class ShoppingCardComponent implements OnInit {
     },
   ];
 
-  promoCodes = [
+  promoCodes: IPromoInfo[] = [
     {
       code: 'anhbt1234',
-      percent: 5,
+      percentSale: 5,
     },
     {
       code: 'tuanhdeptrai',
-      percent: 10,
+      percentSale: 10,
     },
   ];
 
@@ -54,6 +55,7 @@ export class ShoppingCardComponent implements OnInit {
   tax = 0;
   total = 0;
   promoMoney = 0;
+  promoInfo: IPromoInfo = {};
   shoppingCartInfo: IShoppingCartPage = {};
 
   private getSubTotal(): number {
@@ -80,6 +82,10 @@ export class ShoppingCardComponent implements OnInit {
     this.itemNumbers = this.getItemNumbers();
     this.subTotal = this.getSubTotal();
     this.tax = this.getTax();
+
+    if (this.promoInfo.code) {
+      this.promoMoney = +( this.subTotal *(this.promoInfo.percentSale / 100)).toFixed(2);
+    }
     this.total = this.getTotal();
   }
 
@@ -105,18 +111,27 @@ export class ShoppingCardComponent implements OnInit {
         return item;
       }
     });
+
     this.updateAllState();
   }
 
   onClickPromoCodeBtn(promoCode: string) {
+    this.promoMoney = 0;
+
     for (const promoInfo of this.promoCodes) {
       if (promoInfo.code === promoCode) {
-        this.promoMoney = +(this.subTotal * (promoInfo.percent / 100)).toFixed(
+        this.promoInfo = promoInfo;
+        this.promoMoney = +(this.subTotal * (promoInfo.percentSale / 100)).toFixed(
           2
         );
       }
     }
-    this.updateAllState();
+
+    if (this.promoMoney === 0) {
+      alert('You enter wrong promo code, please enter anhbt1234 for 5% sale !');
+    } else {
+      this.updateAllState();
+    }
   }
 
   onClickCheckOutBtn() {
